@@ -1,0 +1,26 @@
+{
+	"Zeynep's Basic HTML Structure": {
+		"prefix": "htmlzeynep",
+		"body": [
+			"<!-- Created by: Damla Zeynep Sahin, Group: EKFU-24/1 -->",
+			"<!DOCTYPE html>",
+			"<html lang=\"en\">",
+			"<head>",
+			"\t<meta charset=\"UTF-8\">",
+			"\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+			"\t<meta http-equiv=\"content-type\" content=\"text/html; charset=windows-1257\">",
+			"\t<meta name=\"author\" content=\"Damla Zeynep Sahin\">",
+			"\t<meta name=\"description\" content=\"${1:Basic HTML structure demonstration}\">",
+			"\t<meta name=\"keywords\" content=\"${2:HTML, basic structure, lab assignment}\">",
+			"\t<title>${3:Basic HTML Structure - Lab Assignment}</title>",
+			"\t<link rel=\"stylesheet\" href=\"${4:styles.css}\">",
+			"</head>",
+			"<body>",
+			"\t${5:// Content goes here}",
+			"</body>",
+			"</html>"
+		],
+		"description": "Zeynep's Basic HTML structure with meta tags and link for stylesheet"
+	}
+}
+
