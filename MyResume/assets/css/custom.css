@@ -1,0 +1,397 @@
+/* =============================
+   Custom theme overrides
+   ============================= */
+
+:root {
+  --ds-font-display: "Poppins", "Raleway", "Roboto", sans-serif;
+  --ds-font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --ds-space-1: 0.5rem;
+  --ds-space-2: 0.875rem;
+  --ds-space-3: 1.5rem;
+  --ds-space-4: 2.25rem;
+  --ds-space-5: 3rem;
+  --ds-space-6: clamp(3.5rem, 6vw, 5rem);
+  --ds-color-ink: #0f1c2e;
+  --ds-color-muted: #6c7a8b;
+  --ds-color-primary: #2d66f5;
+  --ds-color-primary-dark: #1d3bbd;
+  --ds-color-accent: #ff7a4f;
+  --ds-surface: #ffffff;
+  --ds-shadow-soft: 0 15px 45px rgba(15, 28, 46, 0.12);
+  --ds-radius-md: 1rem;
+  --ds-radius-lg: 1.5rem;
+  color: var(--ds-color-ink);
+}
+
+body {
+  font-family: var(--ds-font-body);
+  color: var(--ds-color-ink);
+}
+
+/* Typography hierarchy */
+h1,
+.hero h2 {
+  font-family: var(--ds-font-display);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 3vw + 1.5rem, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ds-color-ink);
+}
+
+h2,
+.section-title h2 {
+  font-family: var(--ds-font-display);
+  font-weight: 600;
+  font-size: clamp(2.1rem, 1.2vw + 1.4rem, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ds-color-ink);
+}
+
+h3 {
+  font-family: var(--ds-font-display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 0.7vw + 1rem, 2rem);
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--ds-color-ink);
+}
+
+p,
+.section-title p,
+.resume .resume-item p,
+.portfolio .portfolio-info p {
+  font-family: var(--ds-font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  color: var(--ds-color-muted);
+}
+
+/* Interactive elements */
+a,
+.btn,
+button,
+.php-email-form button,
+.portfolio .portfolio-filters li {
+  transition: all 180ms ease;
+}
+
+a {
+  color: var(--ds-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--ds-color-accent);
+}
+
+a:active {
+  color: var(--ds-color-primary-dark);
+}
+
+.btn,
+button,
+.php-email-form button {
+  background: linear-gradient(135deg, var(--ds-color-primary), var(--ds-color-accent));
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 20px rgba(45, 102, 245, 0.25);
+}
+
+.btn:hover,
+button:hover,
+.php-email-form button:hover {
+  box-shadow: 0 18px 35px rgba(15, 28, 46, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn:active,
+button:active,
+.php-email-form button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 10px 20px rgba(15, 28, 46, 0.2);
+}
+
+/* Spacing scale + elevated surfaces */
+.section {
+  padding-block: var(--ds-space-6);
+}
+
+.section .container,
+.section-title {
+  margin-bottom: var(--ds-space-3);
+}
+
+#about .content,
+#skills .skills-content,
+#services .row,
+#resume .resume-item,
+.portfolio .portfolio-info,
+.contact .info-item,
+.contact .php-email-form,
+.testimonials .testimonial-item {
+  background-color: var(--ds-surface);
+  border-radius: var(--ds-radius-lg);
+  padding: var(--ds-space-3);
+  box-shadow: var(--ds-shadow-soft);
+  border: 1px solid rgba(15, 28, 46, 0.06);
+}
+
+#about .content {
+  margin-top: var(--ds-space-2);
+}
+
+#skills .skills-content,
+#services .row,
+#resume .resume-item + .resume-item,
+.portfolio .portfolio-info,
+.contact .info-item + .info-item,
+.contact .php-email-form {
+  margin-top: var(--ds-space-3);
+}
+
+/* Restyled nav component */
+#navmenu {
+  background: rgba(8, 18, 48, 0.9);
+  padding: var(--ds-space-2) var(--ds-space-1);
+  border-radius: 0 var(--ds-radius-lg) var(--ds-radius-lg) 0;
+  box-shadow: 20px 0 40px rgba(8, 18, 48, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+#navmenu a {
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+}
+
+#navmenu a:hover,
+#navmenu a.active {
+  color: #fff;
+}
+
+#navmenu a.active::after,
+#navmenu a:hover::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 28px;
+  margin-top: 0.35rem;
+  background: linear-gradient(90deg, var(--ds-color-primary), var(--ds-color-accent));
+  border-radius: 999px;
+}
+
+/* Restyled progress component */
+.skills .progress {
+  background: rgba(45, 102, 245, 0.08);
+  border-radius: 999px;
+  padding: 0.35rem;
+  border: 1px solid rgba(45, 102, 245, 0.2);
+  margin-bottom: var(--ds-space-2);
+}
+
+.skills .skill {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--ds-color-ink);
+}
+
+.skills .skill .val {
+  color: var(--ds-color-accent);
+  font-weight: 700;
+}
+
+.skills .progress-bar {
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ds-color-primary), var(--ds-color-accent));
+}
+
+/* Breadcrumb and scroll-top tweaks (component appearance only) */
+.breadcrumbs {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--ds-radius-md);
+  padding: var(--ds-space-2) var(--ds-space-3);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+#scroll-top {
+  background: var(--ds-color-ink);
+  color: #fff;
+  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 12px 25px rgba(15, 28, 46, 0.35);
+}
+
+#scroll-top:hover {
+  background: var(--ds-color-primary);
+}
+
+/* Portfolio filters interactive styling */
+.portfolio .portfolio-filters li {
+  color: var(--ds-color-ink);
+  border-radius: 999px;
+  padding: 0.4rem 1.15rem;
+  border: 1px solid rgba(15, 28, 46, 0.15);
+}
+
+.portfolio .portfolio-filters li.filter-active,
+.portfolio .portfolio-filters li:hover {
+  background: var(--ds-color-ink);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* =============================
+   List systems with counters
+   ============================= */
+.about .content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: var(--ds-space-2);
+}
+
+.about .content ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  color: var(--ds-color-ink);
+}
+
+.about .content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 2px solid var(--ds-color-accent);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 122, 79, 0.15);
+}
+
+.resume .resume-item ul {
+  list-style: none;
+  margin: var(--ds-space-2) 0 0;
+  padding-left: 0;
+  counter-reset: resumeSteps;
+}
+
+.resume .resume-item ul li {
+  counter-increment: resumeSteps;
+  position: relative;
+  padding: 0.35rem 0 0.35rem 3rem;
+  font-weight: 500;
+  color: var(--ds-color-muted);
+}
+
+.resume .resume-item ul li::before {
+  content: counter(resumeSteps, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.75rem;
+  background: rgba(45, 102, 245, 0.12);
+  color: var(--ds-color-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+}
+
+.resume .resume-item ul li ul {
+  counter-reset: resumeNested;
+  margin-top: 0.45rem;
+  margin-left: 1rem;
+  padding-left: 0;
+}
+
+.resume .resume-item ul li ul li {
+  counter-increment: resumeNested;
+  padding-left: 2.5rem;
+  font-size: 0.98rem;
+  color: var(--ds-color-ink);
+}
+
+.resume .resume-item ul li ul li::before {
+  content: counter(resumeSteps) "." counter(resumeNested, lower-alpha);
+  position: absolute;
+  left: 0.4rem;
+  top: 0.2rem;
+  width: auto;
+  background: none;
+  border-radius: 0;
+  color: var(--ds-color-accent);
+  font-weight: 600;
+  display: inline;
+  letter-spacing: 0.05em;
+}
+
+/* =============================
+   Resume data block styling
+   ============================= */
+.resume .resume-title {
+  background: rgba(15, 28, 46, 0.9);
+  color: #fff;
+  padding: 0.85rem 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+  border-radius: var(--ds-radius-md);
+  margin-bottom: var(--ds-space-2);
+}
+
+.resume .resume-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem 1.5rem;
+  align-items: start;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.resume .resume-item h4 {
+  grid-column: 1 / -1;
+  margin-bottom: 0.2rem;
+  color: var(--ds-color-ink);
+}
+
+.resume .resume-item h5 {
+  grid-row: 2 / span 1;
+  justify-self: end;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(45, 102, 245, 0.08);
+  color: var(--ds-color-primary-dark);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.resume .resume-item p,
+.resume .resume-item ul {
+  grid-column: 1 / -1;
+}
+
+.resume .resume-item:nth-of-type(even) {
+  background: #f7f9ff;
+}
+
+.resume .resume-item:hover {
+  box-shadow: 0 25px 50px rgba(15, 28, 46, 0.15);
+  transform: translateY(-2px);
+}
+
