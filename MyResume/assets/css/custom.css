@@ -255,6 +255,112 @@ button:active,
 /* =============================
    List systems with counters
    ============================= */
+.values-card,
+.roadmap-card {
+  padding: var(--ds-space-3);
+  border-radius: var(--ds-radius-lg);
+  border: 1px solid rgba(15, 28, 46, 0.08);
+  background: #fff;
+  box-shadow: var(--ds-shadow-soft);
+  height: 100%;
+}
+
+.values-list {
+  list-style: none;
+  padding-left: 0;
+  margin: var(--ds-space-2) 0 0;
+}
+
+.values-list li {
+  position: relative;
+  padding-left: 2.8rem;
+  margin-bottom: 0.85rem;
+  font-weight: 600;
+  color: var(--ds-color-ink);
+}
+
+.values-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.65rem;
+  background: rgba(255, 122, 79, 0.12);
+  border: 2px solid rgba(255, 122, 79, 0.5);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.values-list li::after {
+  content: "";
+  position: absolute;
+  left: 0.6rem;
+  top: 0.85rem;
+  width: 0.75rem;
+  height: 0.2rem;
+  border-left: 3px solid var(--ds-color-accent);
+  border-bottom: 3px solid var(--ds-color-accent);
+  transform: rotate(-45deg);
+}
+
+.roadmap-list {
+  list-style: none;
+  counter-reset: roadmapSteps;
+  padding-left: 0;
+  margin: var(--ds-space-2) 0 0;
+}
+
+.roadmap-list > li {
+  counter-increment: roadmapSteps;
+  position: relative;
+  padding: 0.75rem 0 0.75rem 3.5rem;
+  font-weight: 600;
+  color: var(--ds-color-ink);
+}
+
+.roadmap-list > li::before {
+  content: counter(roadmapSteps, upper-roman);
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: var(--ds-color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  box-shadow: 0 10px 20px rgba(45, 102, 245, 0.25);
+}
+
+.roadmap-list > li ul {
+  list-style: none;
+  margin-top: 0.65rem;
+  padding-left: 1.75rem;
+  counter-reset: roadmapNested;
+}
+
+.roadmap-list > li ul li {
+  counter-increment: roadmapNested;
+  position: relative;
+  padding-left: 1.75rem;
+  font-weight: 500;
+  color: var(--ds-color-muted);
+}
+
+.roadmap-list > li ul li::before {
+  content: counter(roadmapSteps) "." counter(roadmapNested, decimal);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--ds-color-accent);
+  font-weight: 700;
+}
+
 .about .content ul {
   list-style: none;
   padding-left: 0;
@@ -393,5 +499,57 @@ button:active,
 .resume .resume-item:hover {
   box-shadow: 0 25px 50px rgba(15, 28, 46, 0.15);
   transform: translateY(-2px);
+}
+
+/* =============================
+   Data table styling
+   ============================= */
+.metrics-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--ds-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--ds-shadow-soft);
+  background: #fff;
+}
+
+.metrics-table thead {
+  background: var(--ds-color-ink);
+  color: #fff;
+}
+
+.metrics-table th,
+.metrics-table td {
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+}
+
+.metrics-table th {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.metrics-table tbody tr:nth-child(even) {
+  background: rgba(15, 28, 46, 0.04);
+}
+
+.metrics-table tbody tr:hover {
+  background: rgba(45, 102, 245, 0.08);
+}
+
+.metrics-table td:nth-child(1),
+.metrics-table td:nth-child(2) {
+  text-align: left;
+}
+
+.metrics-table td:nth-child(3),
+.metrics-table td:nth-child(4) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--ds-color-ink);
 }
 
