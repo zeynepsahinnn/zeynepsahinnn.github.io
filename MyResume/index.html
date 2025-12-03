@@ -58,6 +58,7 @@
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
+        <li><a href="#memory-game"><i class="bi bi-controller navicon"></i><span>Memory Game</span></a></li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
       </ul>
     </nav>
@@ -818,6 +819,73 @@
 
     </section><!-- /Testimonials Section -->
 
+    <!-- Memory Game Section -->
+    <section id="memory-game" class="memory-game section light-background">
+      
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Memory Game</h2>
+        <p>Test your memory skills with this fun card matching game!</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        
+        <!-- Game Controls -->
+        <div class="game-controls">
+          <div class="difficulty-selector">
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty" class="form-select">
+              <option value="easy">Easy (4×3)</option>
+              <option value="hard">Hard (6×4)</option>
+            </select>
+          </div>
+          
+          <div class="game-buttons">
+            <button id="start-btn" class="btn btn-primary">Start</button>
+            <button id="restart-btn" class="btn btn-secondary" disabled>Restart</button>
+          </div>
+        </div>
+
+        <!-- Stats Panel -->
+        <div class="stats-panel">
+          <div class="stat-item">
+            <span class="stat-label">Time:</span>
+            <span class="stat-value" id="timer-display">00:00</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Moves:</span>
+            <span class="stat-value" id="moves-count">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Matches:</span>
+            <span class="stat-value" id="matches-count">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Best Time:</span>
+            <span class="stat-value" id="best-time-display">--:--</span>
+          </div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="game-board-container">
+          <div id="game-board" class="game-board"></div>
+        </div>
+
+        <!-- Win Message -->
+        <div id="win-message" class="win-message hidden">
+          <div class="win-message-content">
+            <i class="bi bi-trophy-fill"></i>
+            <h3>Congratulations!</h3>
+            <p>You've matched all pairs in <span id="final-moves">0</span> moves!</p>
+            <p>Time: <span id="final-time">00:00</span></p>
+            <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Memory Game Section -->
+
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
@@ -975,6 +1043,9 @@
 
   <!-- Custom JS File -->
   <script src="assets/js/custom.js"></script>
+
+  <!-- Memory Game JS File -->
+  <script src="assets/js/memory-game.js"></script>
 
 </body>
 
