@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Thermostat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Smart Thermostat</h1>
+            <div class="status-indicator">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Connected</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- Current Temperature Display -->
+            <div class="temperature-display">
+                <div class="current-temp">
+                    <span class="temp-value" id="currentTemp">22</span>
+                    <span class="temp-unit">°C</span>
+                </div>
+                <div class="temp-label">Current Temperature</div>
+            </div>
+
+            <!-- Target Temperature Control -->
+            <div class="target-control">
+                <div class="target-label">Target Temperature</div>
+                <div class="target-display">
+                    <button class="temp-btn" id="decreaseBtn" aria-label="Decrease temperature">−</button>
+                    <div class="target-temp">
+                        <span id="targetTemp">22</span>
+                        <span class="temp-unit">°C</span>
+                    </div>
+                    <button class="temp-btn" id="increaseBtn" aria-label="Increase temperature">+</button>
+                </div>
+                <input type="range" id="tempSlider" min="16" max="29" value="22" class="slider">
+            </div>
+
+            <!-- Mode Selection -->
+            <div class="mode-section">
+                <h3>Mode</h3>
+                <div class="mode-buttons">
+                    <button class="mode-btn active" data-mode="heat" id="heatBtn">
+                        <span class="mode-icon">🔥</span>
+                        <span>Heat</span>
+                    </button>
+                    <button class="mode-btn" data-mode="cool" id="coolBtn">
+                        <span class="mode-icon">❄️</span>
+                        <span>Cool</span>
+                    </button>
+                    <button class="mode-btn" data-mode="auto" id="autoBtn">
+                        <span class="mode-icon">🔄</span>
+                        <span>Auto</span>
+                    </button>
+                    <button class="mode-btn" data-mode="off" id="offBtn">
+                        <span class="mode-icon">⏸️</span>
+                        <span>Off</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Fan Control -->
+            <div class="fan-section">
+                <h3>Fan</h3>
+                <div class="fan-control">
+                    <label class="switch">
+                        <input type="checkbox" id="fanToggle">
+                        <span class="slider-switch"></span>
+                    </label>
+                    <span class="fan-status" id="fanStatus">Auto</span>
+                </div>
+            </div>
+
+            <!-- Schedule Display -->
+            <div class="schedule-section">
+                <h3>Today's Schedule</h3>
+                <div class="schedule-list" id="scheduleList">
+                    <div class="schedule-item">
+                        <span class="schedule-time">6:00 AM</span>
+                        <span class="schedule-temp">21°C</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">8:00 AM</span>
+                        <span class="schedule-temp">20°C</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">5:00 PM</span>
+                        <span class="schedule-temp">22°C</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">10:00 PM</span>
+                        <span class="schedule-temp">20°C</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Energy Efficiency Indicator -->
+            <div class="energy-section">
+                <div class="energy-label">Energy Efficiency</div>
+                <div class="energy-bar">
+                    <div class="energy-fill" id="energyFill"></div>
+                </div>
+                <div class="energy-text" id="energyText">Good</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
