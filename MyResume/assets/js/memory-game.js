@@ -311,7 +311,14 @@
    * Show win message
    */
   function showWinMessage() {
+    stopTimer();
     finalMoves.textContent = gameState.moves;
+    finalTime.textContent = formatTime(gameState.timer);
+    
+    // Save best score if applicable
+    const isNewBest = saveBestScore(gameState.difficulty, gameState.timer);
+    updateBestScoreDisplay();
+    
     winMessage.classList.remove('hidden');
     restartBtn.disabled = true;
   }
@@ -336,6 +343,8 @@
     initializeBoard();
     updateStats();
     hideWinMessage();
+    resetTimer();
+    startTimer();
     
     startBtn.disabled = true;
     restartBtn.disabled = false;
@@ -345,6 +354,7 @@
    * Restart game
    */
   function restartGame() {
+    stopTimer();
     gameState.gameStarted = true;
     gameState.moves = 0;
     gameState.matches = 0;
@@ -354,6 +364,8 @@
     initializeBoard();
     updateStats();
     hideWinMessage();
+    resetTimer();
+    startTimer();
     
     startBtn.disabled = true;
     restartBtn.disabled = false;
@@ -363,6 +375,7 @@
    * Reset game (to initial state)
    */
   function resetGame() {
+    stopTimer();
     gameState.gameStarted = false;
     gameState.moves = 0;
     gameState.matches = 0;
@@ -372,6 +385,7 @@
     gameBoard.innerHTML = '';
     updateStats();
     hideWinMessage();
+    resetTimer();
     
     startBtn.disabled = false;
     restartBtn.disabled = true;
@@ -393,6 +407,7 @@
     difficultySelect.addEventListener('change', () => {
       // When difficulty changes, reinitialize the board
       gameState.difficulty = difficultySelect.value;
+      updateBestScoreDisplay();
       
       if (gameState.gameStarted) {
         // If game is in progress, restart with new difficulty
@@ -409,6 +424,8 @@
    */
   function init() {
     updateStats();
+    updateBestScoreDisplay();
+    resetTimer();
     initEventListeners();
   }
 
